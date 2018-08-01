@@ -54,8 +54,7 @@ for image_name, lr_image in test_bar:
     sr_image = model(lr_image)
 
     image = sr_image
-    utils.save_image(image, out_path + image_name.split('.')[0] + 
-                     image_name.split('.')[-1], padding=5)
+    utils.save_image(image, 'output.png')
 
     # save psnr\ssim
     results[image_name.split('_')[0]]['psnr'].append(psnr)
