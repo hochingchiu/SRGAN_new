@@ -25,7 +25,7 @@ from model import Generator, Discriminator
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d%H%M")
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
 os.mkdir(timenow)
 path1= timenow+'/training_results'
 os.mkdir(path1)
