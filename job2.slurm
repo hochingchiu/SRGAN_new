@@ -5,4 +5,4 @@
 #SBATCH --mem=128G
 
 source ~/environment/saion/gpu_saion/bin/activate
-python3 ~/SRGAN/srgan.py
+python3 ~/SRGAN/srgan2.py
