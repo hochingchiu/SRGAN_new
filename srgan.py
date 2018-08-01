@@ -26,6 +26,13 @@ from model import Generator, Discriminator
 # In[6]:
 
 timenow = datetime.datetime.now().strftime("%Y%m%d%H%M")
+os.mkdir(timenow)
+path1= timenow+'/training_results'
+os.mkdir(path1)
+path2= timenow+'/epochs'
+os.mkdir(path2)
+path3= timenow+'/statistics'
+os.mkdir(path3)
 
 parser = argparse.ArgumentParser(description='Train Super Resolution Models')
 parser.add_argument('--crop_size', default=88, type=int, help='training images crop size')
