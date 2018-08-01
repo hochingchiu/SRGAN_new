@@ -7,6 +7,7 @@
 import argparse
 import os
 from math import log10
+import datetime
 
 import pandas as pd
 import torch.optim as optim
@@ -19,10 +20,12 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
+from model import Generator, Discriminator
 
 
 # In[6]:
 
+timenow = datetime.datetime.now().strftime("%Y%m%d%H%M")
 
 parser = argparse.ArgumentParser(description='Train Super Resolution Models')
 parser.add_argument('--crop_size', default=88, type=int, help='training images crop size')
@@ -129,6 +132,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             running_results['g_score'] / running_results['batch_sizes']))
 
     netG.eval()
+    out_path = timenow + '/training_results/SRF_' + str(UPSCALE_FACTOR) + '/'
     if not os.path.exists(out_path):
         os.makedirs(out_path)
     val_bar = tqdm(val_loader)
@@ -167,6 +171,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         index += 1
 
     # save model parameters
+    torch.save(netG.state_dict(),  timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
+    torch.save(netD.state_dict(),  timenow + '/epochs/netD_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
     # save loss\scores\psnr\ssim
     results['d_loss'].append(running_results['d_loss'] / running_results['batch_sizes'])
     results['g_loss'].append(running_results['g_loss'] / running_results['batch_sizes'])
@@ -176,6 +182,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
     results['ssim'].append(valing_results['ssim'])
 
     if epoch % 10 == 0 and epoch != 0:
+        out_path =  timenow + '/statistics/'
         data_frame = pd.DataFrame(
             data={'Loss_D': results['d_loss'], 'Loss_G': results['g_loss'], 'Score_D': results['d_score'],
                   'Score_G': results['g_score'], 'PSNR': results['psnr'], 'SSIM': results['ssim']},
