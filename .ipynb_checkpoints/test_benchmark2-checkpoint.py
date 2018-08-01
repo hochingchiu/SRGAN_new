@@ -33,7 +33,7 @@ parser.add_argument('--model_name', default='netG_epoch_4_100.pth', type=str, he
 #UPSCALE_FACTOR = opt.upscale_factor
 #MODEL_NAME = opt.model_name
 
-UPSCALE_FACTOR = 4
+UPSCALE_FACTOR = 2
 MODEL_NAME = 'netG_epoch_4_100_2.pth'
 
 results = {'Set5': {'psnr': [], 'ssim': []}, 'Set14': {'psnr': [], 'ssim': []}, 'BSD100': {'psnr': [], 'ssim': []},
