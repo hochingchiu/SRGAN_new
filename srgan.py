@@ -51,7 +51,7 @@ parser.add_argument('--num_epochs', default=100, type=int, help='train epoch num
 #NUM_EPOCHS = opt.num_epochs
 
 CROP_SIZE = 88
-UPSCALE_FACTOR = 8
+UPSCALE_FACTOR = 4
 NUM_EPOCHS = 100
 
 
