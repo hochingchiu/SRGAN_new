@@ -48,7 +48,7 @@ test_set = TestDatasetFromFolder('data/test', upscale_factor=UPSCALE_FACTOR)
 test_loader = DataLoader(dataset=test_set, num_workers=4, batch_size=1, shuffle=False)
 test_bar = tqdm(test_loader, desc='[testing benchmark datasets]')
 
-out_path = timenow + 'benchmark_results/SRF_' + str(UPSCALE_FACTOR) + '/'
+out_path = timenow + '/benchmark_results/SRF_' + str(UPSCALE_FACTOR) + '/'
 if not os.path.exists(out_path):
     os.makedirs(out_path)
 
@@ -76,7 +76,7 @@ for image_name, lr_image, hr_restore_img, hr_image in test_bar:
     results[image_name.split('_')[0]]['psnr'].append(psnr)
     results[image_name.split('_')[0]]['ssim'].append(ssim)
 
-out_path = timenow + 'statistics/'
+out_path = timenow + '/statistics/'
 saved_results = {'psnr': [], 'ssim': []}
 for item in results.values():
     psnr = np.array(item['psnr'])
