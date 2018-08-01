@@ -17,7 +17,7 @@ from model import Generator
 
 
 timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
-os.mkdir(timenow)
+os.mkdir('~/../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow)
 path1= '~/../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow + '/benchmark_results'
 os.mkdir(path1)
 #path2= timenow+'/epochs'
