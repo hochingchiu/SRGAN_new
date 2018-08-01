@@ -15,10 +15,9 @@ from model import Generator
 #parser.add_argument('--model_name', default='netG_epoch_4_100.pth', type=str, help='generator model epoch name')
 #opt = parser.parse_args()
 
-path = '/data/play/'
 UPSCALE_FACTOR = 4
 TEST_MODE = True #if opt.test_mode == 'GPU' else False
-IMAGE_NAME = path + '001.jpg'
+IMAGE_NAME = '001.jpg'
 MODEL_NAME = 'netG_epoch_4_100.pth'
 
 model = Generator(UPSCALE_FACTOR).eval()
@@ -38,4 +37,4 @@ out = model(image)
 elapsed = (time.clock() - start)
 print('cost' + str(elapsed) + 's')
 out_img = ToPILImage()(out[0].data.cpu())
-out_img.save(path + 'out_srf_' + str(UPSCALE_FACTOR) + '_' + IMAGE_NAME)
+out_img.save('out_srf_' + str(UPSCALE_FACTOR) + '_' + IMAGE_NAME)
