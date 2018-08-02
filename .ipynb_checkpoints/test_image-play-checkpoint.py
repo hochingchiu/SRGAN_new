@@ -17,7 +17,7 @@ from model import Generator
 
 UPSCALE_FACTOR = 4
 TEST_MODE = True #if opt.test_mode == 'GPU' else False
-IMAGE_NAME = '0011.jpg'
+IMAGE_NAME = '001.jpg'
 MODEL_NAME = 'netG_epoch_4_100.pth'
 
 model = Generator(UPSCALE_FACTOR).eval()
