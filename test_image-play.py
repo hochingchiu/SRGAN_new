@@ -28,6 +28,12 @@ else:
     model.load_state_dict(torch.load('epochs/' + MODEL_NAME, map_location=lambda storage, loc: storage))
 
 image = Image.open(IMAGE_NAME)
+
+
+
+
+
+
 image = Variable(ToTensor()(image), volatile=True).unsqueeze(0)
 if TEST_MODE:
     image = image.cuda()
@@ -37,4 +43,11 @@ out = model(image)
 elapsed = (time.clock() - start)
 print('cost' + str(elapsed) + 's')
 out_img = ToPILImage()(out[0].data.cpu())
+
+
+
+
+
+
+
 out_img.save('out_srf_' + str(UPSCALE_FACTOR) + '_' + IMAGE_NAME)
