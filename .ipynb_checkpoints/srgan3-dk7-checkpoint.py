@@ -22,12 +22,12 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model-dk7 import Generator, Discriminator ####################################################################model 3
 
-print('model dk7: in this, for generator all convNet kernel size changed to 7, padding 3' )
+print('run model-dk7: dis network all k size =7 and pad size 3 )
 
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-dk7")
 path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
 os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'

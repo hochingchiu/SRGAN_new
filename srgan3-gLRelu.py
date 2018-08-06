@@ -20,14 +20,14 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model-dk7 import Generator, Discriminator ####################################################################model 3
+from model-gLRelu import Generator, Discriminator ####################################################################model 3
 
-print('model dk7: in this, for generator all convNet kernel size changed to 7, padding 3' )
+print('model gLRelu: residual block act func changed to leaky relu 0.2' )
 
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-gLRelu")
 path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
 os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
