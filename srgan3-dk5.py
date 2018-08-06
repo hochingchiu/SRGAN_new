@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model-dk5 import Generator, Discriminator ####################################################################model 3
+from model_dk5 import Generator, Discriminator ####################################################################model 3
 
 print('model dk5: in this, for generator all convNet kernel size changed to 5, padding 2' )
 

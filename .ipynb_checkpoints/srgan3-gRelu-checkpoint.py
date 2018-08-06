@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model-gRelu import Generator, Discriminator ####################################################################model 3
+from model_gRelu import Generator, Discriminator ####################################################################model 3
 
 print('model gRelu: in this, for generator all residual block act function changed to Relu' )
 

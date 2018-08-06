@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model-gLRelu import Generator, Discriminator ####################################################################model 3
+from model_gLRelu import Generator, Discriminator ####################################################################model 3
 
 print('model gLRelu: residual block act func changed to leaky relu 0.2' )
 

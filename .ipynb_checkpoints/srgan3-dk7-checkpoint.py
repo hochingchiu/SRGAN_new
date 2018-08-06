@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model-dk7 import Generator, Discriminator ####################################################################model 3
+from model_dk7 import Generator, Discriminator ####################################################################model 3
 
 print('run model-dk7: dis network all k size =7 and pad size 3 )
 
