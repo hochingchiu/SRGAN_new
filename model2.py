@@ -88,10 +88,10 @@ class Discriminator(nn.Module):
 class ResidualBlock(nn.Module):
     def __init__(self, channels):
         super(ResidualBlock, self).__init__()
-        self.conv1 = nn.Conv2d(channels, channels, kernel_size=2, padding=1)
+        self.conv1 = nn.Conv2d(channels, channels, kernel_size=5, padding=2) #original kernel size = 3, padding = 1
         self.bn1 = nn.BatchNorm2d(channels)
         self.prelu = nn.PReLU()
-        self.conv2 = nn.Conv2d(channels, channels, kernel_size=2, padding=1)
+        self.conv2 = nn.Conv2d(channels, channels, kernel_size=5, padding=2) #original kernel size = 3, padding = 1
         self.bn2 = nn.BatchNorm2d(channels)
 
     def forward(self, x):
