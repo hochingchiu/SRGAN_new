@@ -22,7 +22,7 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model2 import Generator, Discriminator
 
-print('run model2: in this, only residual block kernel size changed to 2')
+print('run model2: in this, only residual block kernel size changed to 5, padding 2')
 
 
 # In[6]:
