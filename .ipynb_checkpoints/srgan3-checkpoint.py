@@ -27,11 +27,11 @@ from model import Generator, Discriminator
 
 timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
 os.mkdir(timenow)
-path1= '~/../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
+path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
 os.mkdir(path1)
-path2= '~/../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/epochs'
+path2= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/epochs'
 os.mkdir(path2)
-path3= '~/../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/statistics'
+path3= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/statistics'
 os.mkdir(path3)
 
 parser = argparse.ArgumentParser(description='Train Super Resolution Models')
@@ -60,8 +60,8 @@ NUM_EPOCHS = 100
 
 
 
-train_set = TrainDatasetFromFolder('~/../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/train', crop_size=CROP_SIZE, upscale_factor=UPSCALE_FACTOR)
-val_set = ValDatasetFromFolder('~/../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/val', upscale_factor=UPSCALE_FACTOR)
+train_set = TrainDatasetFromFolder('../../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/train', crop_size=CROP_SIZE, upscale_factor=UPSCALE_FACTOR)
+val_set = ValDatasetFromFolder('../../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/val', upscale_factor=UPSCALE_FACTOR)
 train_loader = DataLoader(dataset=train_set, num_workers=4, batch_size=64, shuffle=True)
 val_loader = DataLoader(dataset=val_set, num_workers=4, batch_size=1, shuffle=False)
 
@@ -139,7 +139,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             running_results['g_score'] / running_results['batch_sizes']))
 
     netG.eval()
-    out_path = '~/../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/training_results/SRF_' + str(UPSCALE_FACTOR) + '/'
+    out_path = '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/training_results/SRF_' + str(UPSCALE_FACTOR) + '/'
     if not os.path.exists(out_path):
         os.makedirs(out_path)
     val_bar = tqdm(val_loader)
@@ -178,8 +178,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         index += 1
 
     # save model parameters
-    torch.save(netG.state_dict(),  '~/../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
-    torch.save(netD.state_dict(),  '~/../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netD_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
+    torch.save(netG.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
+    torch.save(netD.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netD_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
     # save loss\scores\psnr\ssim
     results['d_loss'].append(running_results['d_loss'] / running_results['batch_sizes'])
     results['g_loss'].append(running_results['g_loss'] / running_results['batch_sizes'])
@@ -189,7 +189,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
     results['ssim'].append(valing_results['ssim'])
 
     if epoch % 10 == 0 and epoch != 0:
-        out_path =  '~/../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/statistics/'
+        out_path =  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/statistics/'
         data_frame = pd.DataFrame(
             data={'Loss_D': results['d_loss'], 'Loss_G': results['g_loss'], 'Score_D': results['d_score'],
                   'Score_G': results['g_score'], 'PSNR': results['psnr'], 'SSIM': results['ssim']},
