@@ -22,7 +22,7 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model_dk7 import Generator, Discriminator ####################################################################model 3
 
-print('run model-dk7: dis network all k size =7 and pad size 3 )
+print('run model-dk7: dis network all k size =7 and pad size 3')
 
 
 # In[6]:
