@@ -28,7 +28,8 @@ print('run model3: in this, only residual block kernel size changed to 7, paddin
 # In[6]:
 
 timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
-os.mkdir(timenow)
+path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
+os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
 os.mkdir(path1)
 path2= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/epochs'
