@@ -22,7 +22,7 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model_noSkip import Generator, Discriminator ####################################################################model 3
 
-print('run model noSkip - deleted skip connection in each res block and block 1+7 )
+print('run model noSkip - deleted skip connection in each res block and block 1+7' )
 
 
 # In[6]:

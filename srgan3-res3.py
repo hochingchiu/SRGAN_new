@@ -22,7 +22,7 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model_res3 import Generator, Discriminator ####################################################################model 3
 
-print('run model_res3:3 residual blocks )
+print('run model_res3:3 residual blocks' )
 
 
 # In[6]:
