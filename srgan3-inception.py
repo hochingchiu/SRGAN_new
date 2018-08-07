@@ -20,13 +20,14 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model import Generator, Discriminator
+from model_inception import Generator, Discriminator
 
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
-os.mkdir(timenow)
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-inception")
+path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
+os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
 os.mkdir(path1)
 path2= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/epochs'
