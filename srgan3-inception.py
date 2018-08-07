@@ -63,7 +63,7 @@ NUM_EPOCHS = 100
 
 train_set = TrainDatasetFromFolder('../../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/train', crop_size=CROP_SIZE, upscale_factor=UPSCALE_FACTOR)
 val_set = ValDatasetFromFolder('../../../../work/unit/DoyaU/hoching/SRGAN/data/VOC2012/val', upscale_factor=UPSCALE_FACTOR)
-train_loader = DataLoader(dataset=train_set, num_workers=4, batch_size=64, shuffle=True)
+train_loader = DataLoader(dataset=train_set, num_workers=4, batch_size=32, shuffle=True)
 val_loader = DataLoader(dataset=val_set, num_workers=4, batch_size=1, shuffle=False)
 
 netG = Generator(UPSCALE_FACTOR)
