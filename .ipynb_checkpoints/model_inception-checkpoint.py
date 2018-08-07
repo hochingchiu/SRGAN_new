@@ -115,7 +115,7 @@ class BasicConv2d(nn.Module):
         return x
     
 class InceptionBlock(nn.Module):
-    def __init__(self, channels):
+    def __init__(self, in_channels):
         super(InceptionBlock, self).__init__()
 
         self.prelu = nn.PReLU()
