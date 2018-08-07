@@ -131,7 +131,7 @@ class InceptionBlock(nn.Module):
 
         self.branch_pool = BasicConv2d(in_channels, 64, kernel_size=1)
         
-        self.reduce = BasicConv2d(in_channels, 64, kernel_size=1) 
+        self.reduce = BasicConv2d(288, 64, kernel_size=1) 
 
     def forward(self, x):
         branch1x1 = self.branch1x1(x)
