@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model3 import Generator, Discriminator ####################################################################model 3
+from model import Generator, Discriminator ####################################################################model 3
 
 print('run model3: in this, only residual block kernel size changed to 7, padding 3, for both conv2d' )
 
