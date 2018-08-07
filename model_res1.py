@@ -26,7 +26,7 @@ class Generator(nn.Module):
         block1 = self.block1(x)
         block2 = self.block2(block1)
         block3 = self.block3(block2)
-        block4 = self.block8(block1 + block3)
+        block4 = self.block4(block1 + block3)
 
         return (F.tanh(block4) + 1) / 2
 
