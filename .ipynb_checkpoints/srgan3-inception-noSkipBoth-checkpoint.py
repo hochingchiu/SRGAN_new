@@ -26,7 +26,7 @@ print('Changed original residual block to inception block - refer to model - and
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-inception")
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-inception_noSkipBoth")
 path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
 os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'

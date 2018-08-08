@@ -20,12 +20,15 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model_inception import Generator, Discriminator
+from model_inception_noSkipBig import Generator, Discriminator
+
+
+print('Changed original residual block to inception block - refer to model - and also deleted skip connection  since it might shit at the elementwise addition if use inception (delete only the large one here)' )
 
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-inception")
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-inception_noSkipBig")
 path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
 os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
