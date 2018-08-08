@@ -1,7 +1,6 @@
 import argparse
 import os
 from math import log10
-import datetime
 
 import numpy as np
 import pandas as pd
@@ -15,28 +14,13 @@ import pytorch_ssim
 from data_utils import TestDatasetFromFolder, display_transform
 from model import Generator
 
-
-UPSCALE_FACTOR = 4
-MODEL_NAME = 'netG_epoch_4_100.pth'
-
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M")
-os.mkdir('../../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow)
-path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow + '/benchmark_results'
-os.mkdir(path1)
-#path2= timenow+'/epochs'
-#os.mkdir(path2)
-path3= '../../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow + '/statistics'
-os.mkdir(path3)
-
 parser = argparse.ArgumentParser(description='Test Benchmark Datasets')
 parser.add_argument('--upscale_factor', default=4, type=int, help='super resolution upscale factor')
 parser.add_argument('--model_name', default='netG_epoch_4_100.pth', type=str, help='generator model epoch name')
-#opt = parser.parse_args()
+opt = parser.parse_args()
 
-#UPSCALE_FACTOR = opt.upscale_factor
-#MODEL_NAME = opt.model_name
-
-
+UPSCALE_FACTOR = opt.upscale_factor
+MODEL_NAME = opt.model_name
 
 results = {'Set5': {'psnr': [], 'ssim': []}, 'Set14': {'psnr': [], 'ssim': []}, 'BSD100': {'psnr': [], 'ssim': []},
            'Urban100': {'psnr': [], 'ssim': []}, 'SunHays80': {'psnr': [], 'ssim': []}}
@@ -46,11 +30,11 @@ if torch.cuda.is_available():
     model = model.cuda()
 model.load_state_dict(torch.load('epochs/' + MODEL_NAME))
 
-test_set = TestDatasetFromFolder('../../../../work/unit/DoyaU/hoching/SRGAN/data/test', upscale_factor=UPSCALE_FACTOR)
+test_set = TestDatasetFromFolder('data/test', upscale_factor=UPSCALE_FACTOR)
 test_loader = DataLoader(dataset=test_set, num_workers=4, batch_size=1, shuffle=False)
 test_bar = tqdm(test_loader, desc='[testing benchmark datasets]')
 
-out_path = '../../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow + '/benchmark_results/SRF_' + str(UPSCALE_FACTOR) + '/'
+out_path = 'benchmark_results/SRF_' + str(UPSCALE_FACTOR) + '/'
 if not os.path.exists(out_path):
     os.makedirs(out_path)
 
@@ -78,7 +62,7 @@ for image_name, lr_image, hr_restore_img, hr_image in test_bar:
     results[image_name.split('_')[0]]['psnr'].append(psnr)
     results[image_name.split('_')[0]]['ssim'].append(ssim)
 
-out_path = '../../../../work/unit/DoyaU/hoching/SRGAN/'+ timenow + '/statistics/'
+out_path = 'statistics/'
 saved_results = {'psnr': [], 'ssim': []}
 for item in results.values():
     psnr = np.array(item['psnr'])
