@@ -27,7 +27,7 @@ print('run model gk5, residual block in g - k size 5' )
 
 # In[6]:
 
-timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-gk5)
+timenow = datetime.datetime.now().strftime("%Y%m%d-%H%M-gk5")
 path0 = '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow
 os.mkdir(path0)
 path1= '../../../../work/unit/DoyaU/hoching/SRGAN/'+timenow+'/training_results'
