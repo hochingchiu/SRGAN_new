@@ -180,7 +180,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
 
     
     print(netG.state_dict())
-    print(netG.param)    
+    print(netG.parameters())    
     
     # save model parameters
     torch.save(netG.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
