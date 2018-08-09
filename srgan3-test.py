@@ -178,9 +178,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
         utils.save_image(image, out_path + 'epoch_%d_index_%d.png' % (epoch, index), padding=5)
         index += 1
 
-    print(param)
+    
     print(netG.state_dict())
-        
+    print(netG.param)    
     
     # save model parameters
     torch.save(netG.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
