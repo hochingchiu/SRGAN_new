@@ -20,7 +20,7 @@ from tqdm import tqdm
 import pytorch_ssim
 from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_transform
 from loss import GeneratorLoss
-from model import Generator, Discriminator
+from model_inception2 import Generator, Discriminator
 
 
 # In[6]:
@@ -53,7 +53,7 @@ parser.add_argument('--num_epochs', default=100, type=int, help='train epoch num
 
 CROP_SIZE = 88
 UPSCALE_FACTOR = 4
-NUM_EPOCHS = 100
+NUM_EPOCHS = 1
 
 
 # In[8]:
@@ -178,6 +178,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
         utils.save_image(image, out_path + 'epoch_%d_index_%d.png' % (epoch, index), padding=5)
         index += 1
 
+    print(param)
+    print(netG.state_dict())
+        
+    
     # save model parameters
     torch.save(netG.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netG_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
     torch.save(netD.state_dict(),  '../../../../work/unit/DoyaU/hoching/SRGAN/' + timenow + '/epochs/netD_epoch_%d_%d.pth' % (UPSCALE_FACTOR, epoch))
