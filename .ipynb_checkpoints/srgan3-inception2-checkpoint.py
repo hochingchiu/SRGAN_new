@@ -22,7 +22,7 @@ from data_utils import TrainDatasetFromFolder, ValDatasetFromFolder, display_tra
 from loss import GeneratorLoss
 from model_inception2 import Generator, Discriminator
 
-print('run inception2 run inception2 run inception2 run inception2 run inception2 run inception2 - 15 epoch' )
+print('run inception2 run inception2 run inception2 run inception2 run inception2 run inception2 - 100 epoch' )
 
 
 
@@ -56,7 +56,7 @@ parser.add_argument('--num_epochs', default=100, type=int, help='train epoch num
 
 CROP_SIZE = 88
 UPSCALE_FACTOR = 4
-NUM_EPOCHS = 15
+NUM_EPOCHS = 100
 
 
 # In[8]:
